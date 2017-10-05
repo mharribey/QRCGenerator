@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MONi - Scan it, Save it</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>MONi</h1>
+
+    <form onsubmit="return false;" id="form">
+      <div class="item">
+         <input type="text" class="listDate" placeholder="Date">
+         <input type="text" class="listShop" placeholder="Magasin">
+      </div>
+
+      <div class="item">
+         <input type="text" class="listText" placeholder="Item">
+         <input type="text" class="listPrice" placeholder="Prix">
+      </div>
+      <div class="item">
+         <input type="text" class="listText" placeholder="Item">
+         <input type="text" class="listPrice" placeholder="Prix">
+      </div>
+      <div class="item">
+         <input type="text" class="listText" placeholder="Item">
+         <input type="text" class="listPrice" placeholder="Prix">
+      </div>
+
+      <div class="item">
+         <input type="text" class="listText" placeholder="Item">
+         <input type="text" class="listPrice" placeholder="Prix">
+      </div>
+
+      <button id="btn" onclick="document.getElementById('imageQRcode').src = 'http://chart.apis.google.com/chart?cht=qr&amp;chs=300x300&amp;chl=' + itemList()">Créer le QRcode</button>
+    </form>
+    <img id="imageQRcode" alt="QR Code" src="http://chart.apis.google.com/chart?cht=qr&amp;chs=300x300&amp;chl=moni" name="imageQRcode">
+  </body>
+
+  <script type="text/javascript">
+    var date = document.querySelector(".listDate");
+    var time = new Date();
+    date.value = time.getUTCDate() + "/" + time.getUTCMonth() + "/" + time.getUTCFullYear();
+
+
+    var itemList = function(){
+      var text = document.getElementsByClassName('listText');
+      var price = document.getElementsByClassName('listPrice');
+      var date = document.querySelector(".listDate");
+      var shop = document.querySelector(".listShop");
+      var final = {};
+
+      final["infos"] = {
+        "date": date.value,
+        "shop": shop.value
+      };
+
+      final["articles"] = {};
+
+      for (var i = 0 ; i < text.length ; i++) {
+        var currentText = text[i].value;
+        if (currentText != "") {
+          final["articles"][currentText] = price[i].value;
+        }
+      }
+
+      console.log(JSON.stringify(final));
+
+      return JSON.stringify(final);
+
+    }
+  </script>
+</html>

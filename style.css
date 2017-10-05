@@ -1,0 +1,64 @@
+html{
+  margin:0;
+  padding:0;
+  display: flex;
+}
+
+h1 {
+  margin:0.2em auto 1em;
+  font-size: 2.5em;
+  font-family: 'Helvetica';
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+body{
+  padding:1em 0 0;
+  margin:auto;
+  width:60vw;
+  display: flex;
+  flex-direction: column;
+}
+
+form{
+  margin:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  background-color: transparent;
+  outline:none;
+  border:1px solid transparent;
+  border-bottom: 1px solid grey;
+  width:10em;
+  margin:0.4em 2em;
+  padding:0.2em;
+  padding-left: 1em;
+  font-size: 0.8em;
+  transition:0.5s ease-in-out;
+}
+
+input:focus {
+  border: 1px solid grey;
+}
+
+#btn {
+  font-size:0.8em;
+  font-family: 'Helvetica';
+  padding:0.5em;
+  margin-top:2em;
+  background-color: black;
+  color:white;
+  border:0;
+}
+
+.item {
+  margin:0.6em;
+}
+
+#imageQRcode {
+  margin:auto;
+}
